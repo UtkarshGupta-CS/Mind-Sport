@@ -1,6 +1,9 @@
 {
    "python.linting.pylintEnabled": false,
    "files.associations": {
-      "iostream": "cpp"
+      "iostream": "cpp",
+      "*.tcc": "cpp",
+      "istream": "cpp",
+      "ostream": "cpp"
    }
 }
