@@ -36,3 +36,6 @@
 *.app
 
 # End of https://www.gitignore.io/api/c++
+
+### VSCODE ###
+*.vscode
