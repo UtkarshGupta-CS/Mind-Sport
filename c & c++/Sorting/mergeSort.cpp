@@ -1,9 +1,8 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-int merge(int a[], int p, int q, int r, int inv)
+void merge(int a[], int p, int q, int r)
 {
    int i, j, k;
    int n1 = q - p + 1;
@@ -31,8 +30,6 @@ int merge(int a[], int p, int q, int r, int inv)
       {
          a[k] = R[j];
          j++;
-         inv++;
-         // cout << inv;
       }
       k++;
    }
@@ -50,20 +47,17 @@ int merge(int a[], int p, int q, int r, int inv)
       j++;
       k++;
    }
-   return inv;
 }
 
-int mergeSort(int a[], int p, int r, int inv)
+void mergeSort(int a[], int p, int r)
 {
    if (p < r)
    {
       int q = (p + r) / 2;
-      
-      mergeSort(a, p, q, inv);
-      mergeSort(a, q + 1, r, inv);
-      inv = merge(a, p, q, r, inv);
-      cout << inv;
-      return inv;
+
+      mergeSort(a, p, q);
+      mergeSort(a, q + 1, r);
+      merge(a, p, q, r);
    }
 }
 
@@ -78,22 +72,19 @@ void display(int a[], int size)
 int main()
 {
    int n;
-   int inv = 0;
    cin >> n;
    int arr[n];
    for (int i = 0; i < n; i++)
    {
       cin >> arr[i];
    }
-   cout << "Original Array" << "\n";
+   cout << "Original Array"
+        << "\n";
    display(arr, n);
-   
-   cout << mergeSort(arr, 0, n-1, inv);
+
+   mergeSort(arr, 0, n-1);
 
    cout << "Sorted array is \n";
    display(arr, n);
-   // cout << mergeSort(arr, 0, n);
-
-   cout << inv;
    return 0;
 }
