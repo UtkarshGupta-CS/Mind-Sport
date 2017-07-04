@@ -82,7 +82,7 @@ int main()
         << "\n";
    display(arr, n);
 
-   mergeSort(arr, 0, n-1);
+   mergeSort(arr, 0, n - 1);
 
    cout << "Sorted array is \n";
    display(arr, n);
