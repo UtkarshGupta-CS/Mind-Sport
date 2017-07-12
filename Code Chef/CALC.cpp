@@ -1,38 +1,36 @@
 /*
 * Link: https://www.codechef.com/JULY17/problems/CALC
 */
-
+// still not passing all the constraint
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 typedef long long ll;
 
 int main()
 {
+  ios_base::sync_with_stdio(false);
   int t;
   cin >> t;
   while (t--)
   {
-    ll n, b, ans = 0, a1 = 0;
+    ll n, b, ans = 0, reserve = 0, max = 0;
     cin >> n >> b;
-    vector<ll> res;
 
-    while(n > 0)
+    while (n > 0)
     {
-      a1++;
+      reserve++;
       ans++;
       --n;
       if (n % b == 0)
       {
         ans = ans * n / b;
-        res.push_back(ans);
-        ans = a1;
+        if (ans > max)
+          max = ans;
+        ans = reserve;
       }
     }
-    sort(res.begin(), res.end());
-    cout << res.back() << "\n";
+    cout << max << "\n";
   }
 
   return 0;
